@@ -16,9 +16,11 @@ jobs:
           distribution: temurin
           java-version: '25'
           cache: maven
-      - name: Run tests
-        run: ./mvnw -B verify
+      - name: Run Tests
+        run: ./mvnw -B test
         env:
           DB_NAME: test
           DB_USER: test
           DB_PASSWORD: test
+      - name: Package
+        run: ./mvnw -B package -DskipTests
