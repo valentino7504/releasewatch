@@ -1,0 +1,24 @@
+name: releasewatch CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup JDK
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+      - name: Run tests
+        run: ./mvnw -B verify
+        env:
+          DB_NAME: test
+          DB_USER: test
+          DB_PASSWORD: test
