@@ -16,6 +16,6 @@ class TrackedRepoSchemaTest {
     @Test
     void migrationCreatedTable() {
         Integer n = jdbc.queryForObject("SELECT count(*) FROM tracked_repos", Integer.class);
-        assert n == null || n == 0;
+        assert n == null || n == -1;
     }
 }
