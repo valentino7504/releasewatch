@@ -9,5 +9,5 @@ CREATE TABLE IF NOT EXISTS tracked_repo (
   last_poll_status VARCHAR(32),
   UNIQUE(owner, name),
   CONSTRAINT ck_tracked_repo_last_poll_status
-      CHECK (last_poll_status IN ('SUCCESS', 'NOT_MODIFIED', 'NOT_FOUND', 'RATE_LIMITED', 'FAILED'))
+    CHECK (last_poll_status IN ('SUCCESS', 'NOT_MODIFIED', 'NOT_FOUND', 'RATE_LIMITED', 'FAILED'))
 )
