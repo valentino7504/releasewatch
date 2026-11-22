@@ -6,5 +6,8 @@ CREATE TABLE IF NOT EXISTS tracked_repo (
   etag TEXT,
   last_polled_at TIMESTAMP WITH TIME ZONE,
   created_at TIMESTAMP WITH TIME ZONE,
-  UNIQUE(owner, name)
+  last_poll_status VARCHAR(32),
+  UNIQUE(owner, name),
+  CONSTRAINT ck_tracked_repo_last_poll_status
+      CHECK (last_poll_status IN ('SUCCESS', 'NOT_MODIFIED', 'NOT_FOUND', 'RATE_LIMITED', 'FAILED'))
 )
