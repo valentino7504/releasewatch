@@ -1,5 +1,5 @@
 -- Create the tracked repo table
-CREATE TABLE IF NOT EXISTS tracked_repos (
+CREATE TABLE IF NOT EXISTS tracked_repo (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   owner VARCHAR(39) NOT NULL,
   name VARCHAR(100) NOT NULL,
